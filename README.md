@@ -19,7 +19,7 @@ sudo docker run -d -p 8080:8080 --rm github-monster-api
 
 API have one GET entrypoint at
 ```
-http://localhost:8080/whoAmI?githubNickname=**{nickname}**
+http://localhost:8080/whoAmI?githubNickname={nickname}
 ```
 Where ``nickname`` is yor github nickname.
 
