@@ -1,4 +1,5 @@
 FROM openjdk:8-jre-alpine as builder
+LABEL stage=githubMonsterApiBuilder
 RUN apk update && apk upgrade && apk add openjdk8
 ENV APPLICATION_USER ktor
 RUN adduser -D -g '' $APPLICATION_USER
