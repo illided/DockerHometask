@@ -47,4 +47,3 @@ fun Application.module(testing: Boolean = false) {
         }
     }.start(wait = true)
 }
-
