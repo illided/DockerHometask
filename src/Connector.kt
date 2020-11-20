@@ -42,13 +42,7 @@ object Connector {
         //      <year2>: {
         //          ...
         val response = HttpClient().use { client ->
-            client.get<String> {
-                url(
-                    "https://github-contributions-api.herokuapp.com/" +
-                            nickname +
-                            "/count"
-                )
-            }
+            client.get<String>("https://github-contributions-api.herokuapp.com/$nickname/count")
         }
 
         return numOfContributionsRegex.findAll(response) // Parsing all num of contributions from calendar
@@ -87,12 +81,8 @@ object Connector {
 
             // Then we use monster index to get all monsters params we need
             // from www.dnd5eapi.co/api
-            return client.get<Monster> {
-                url(
-                    "https://www.dnd5eapi.co/api/monsters/" +
-                            monsterIndex
-                )
-            }
+            return client.get("https://www.dnd5eapi.co/api/monsters/$monsterIndex")
         }
     }
 }
+
