@@ -54,4 +54,5 @@ shadowJar {
 detekt {
     failFast = true // fail build on any finding
     buildUponDefaultConfig = true // preconfigure defaults
+    input = files("./src/")
 }
