@@ -15,12 +15,14 @@ import io.ktor.routing.route
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 
+private const val PORT = 8080
+
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
-    embeddedServer(Netty, 8080) {
+    embeddedServer(Netty, PORT) {
         install(StatusPages) {
             exception<Throwable> { cause ->
                 call.respondText(cause.message ?: "Something went wrong")

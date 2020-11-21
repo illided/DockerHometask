@@ -12,12 +12,12 @@ object Connector {
     private val monsterIndexRegex = "(?<=\"index\":\")[A-Za-z -]+(?=\")".toRegex()
 
     private const val pointsPerContribution = 0.01
+
     private val listOfChallengeRating =
-        listOf<Double>(
-            0.0, 0.125, 0.25, 0.5, 1.0, 2.0, 3.0, 4.0, 5.0,
-            6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 15.0,
-            16.0, 17.0, 19.0, 20.0, 21.0, 22.0, 23.0, 24.0, 30.0
-        )
+        this::class.java.getResource("/challenge-rating-list.txt")
+            .readText()
+            .split("\n")
+            .map { it.toDouble() }
 
     suspend fun getTotalContributions(nickname: String): Int {
         // Check the nickname before setting it in the url
@@ -85,4 +85,3 @@ object Connector {
         }
     }
 }
-

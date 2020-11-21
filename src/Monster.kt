@@ -1,16 +1,20 @@
 package com.example
 
+import com.fasterxml.jackson.annotation.JsonAlias
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class Monster(
     val name: String,
-    val challenge_rating: Int,
+    @JsonAlias("challenge_rating")
+    val challengeRating: Int,
     val size: String,
     val type: String,
     val alignment: String,
-    val armor_class: Int,
-    val hit_points: Int,
+    @JsonAlias("armor_class")
+    val armorClass: Int,
+    @JsonAlias("hit_points")
+    val hitPoints: Int,
     val strength: Int,
     val dexterity: Int,
     val constitution: Int,
